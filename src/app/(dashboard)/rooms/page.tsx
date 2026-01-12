@@ -21,9 +21,9 @@ export default async function RoomsPage() {
       <div className="relative">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-blue-100 px-3 py-1.5 rounded-full mb-3">
-              <Sparkles className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-700">Réservation en temps réel</span>
+            <div className="inline-flex items-center gap-2 bg-primary-100 px-3 py-1.5 rounded-full mb-3">
+              <Sparkles className="h-4 w-4 text-primary-600" />
+              <span className="text-sm font-medium text-primary-700">Réservation en temps réel</span>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Salles disponibles</h1>
             <p className="text-lg text-gray-600">
@@ -33,9 +33,9 @@ export default async function RoomsPage() {
           
           {/* Stats */}
           <div className="flex gap-4">
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-6 py-4 rounded-xl shadow-lg">
+            <div className="bg-gradient-to-br from-primary-500 to-secondary-600 text-white px-6 py-4 rounded-xl shadow-lg">
               <div className="text-3xl font-bold">{rooms?.length || 0}</div>
-              <div className="text-sm text-blue-100">Salles disponibles</div>
+              <div className="text-sm text-gray-100">Salles disponibles</div>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default async function RoomsPage() {
 
       {/* Rooms Grid */}
       {!rooms || rooms.length === 0 ? (
-        <div className="text-center py-16 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border-2 border-dashed border-gray-300">
+        <div className="text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">
           <Building2 className="w-20 h-20 text-gray-400 mx-auto mb-4" />
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             Aucune salle disponible

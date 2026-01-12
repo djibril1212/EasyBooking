@@ -24,9 +24,9 @@ export default function RoomCard({ room }: RoomCardProps) {
 
   return (
     <>
-      <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-blue-200 overflow-hidden">
-        {/* Image placeholder with gradient */}
-        <div className="h-48 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 relative overflow-hidden">
+      <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary-200 overflow-hidden">
+        {/* Image placeholder */}
+        <div className="h-48 bg-gradient-to-br from-primary-500 to-secondary-600 relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white text-center">
@@ -45,7 +45,7 @@ export default function RoomCard({ room }: RoomCardProps) {
         <CardHeader>
           <div className="flex justify-between items-start mb-2">
             <CardTitle className="text-2xl">{room.name}</CardTitle>
-            <div className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full">
+            <div className="flex items-center gap-2 bg-primary-100 text-primary-700 px-3 py-1.5 rounded-full">
               <Users className="w-4 h-4" />
               <span className="text-sm font-semibold">{room.capacity}</span>
             </div>
@@ -66,7 +66,7 @@ export default function RoomCard({ room }: RoomCardProps) {
                 {room.equipments.map((equipment, index) => (
                   <div 
                     key={index}
-                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium border border-blue-200"
+                    className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-700 px-3 py-1.5 rounded-lg text-sm font-medium border border-primary-200"
                   >
                     {getEquipmentIcon(equipment)}
                     {equipment}
@@ -77,7 +77,7 @@ export default function RoomCard({ room }: RoomCardProps) {
           )}
         </CardContent>
 
-        <CardFooter className="bg-gradient-to-br from-gray-50 to-blue-50 border-t">
+        <CardFooter className="bg-gray-50 border-t">
           <Button 
             className="w-full group/btn shadow-md hover:shadow-xl transition-all" 
             size="lg"

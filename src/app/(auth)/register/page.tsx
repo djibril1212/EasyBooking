@@ -77,16 +77,16 @@ export default function RegisterPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 px-4 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="max-w-md w-full text-center relative z-10">
           <div className="bg-white/80 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-gray-100 animate-fade-in">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
               <CheckCircle2 className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -108,11 +108,11 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-pink-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="max-w-md w-full space-y-8 relative z-10">
@@ -127,18 +127,20 @@ export default function RegisterPage() {
 
         {/* Header */}
         <div className="text-center">
-          <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-2xl">E</span>
+          <Link href="/" className="inline-flex items-center gap-3 mb-6">
+            {/* Logo - Remplacez le contenu de cette div par votre logo */}
+            <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+              {/* <img src="/logo.png" alt="EasyBooking Logo" className="w-full h-full object-contain p-1" /> */}
+              <span className="text-white font-bold text-3xl">E</span>
             </div>
-            <span className="font-bold text-3xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="font-bold text-3xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
               EasyBooking
             </span>
           </Link>
           
-          <div className="inline-flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full mb-4">
-            <Sparkles className="h-4 w-4 text-purple-600" />
-            <span className="text-sm font-medium text-purple-700">Inscription gratuite</span>
+          <div className="inline-flex items-center gap-2 bg-primary-100 px-4 py-2 rounded-full mb-4">
+            <Sparkles className="h-4 w-4 text-primary-600" />
+            <span className="text-sm font-medium text-primary-700">Inscription gratuite</span>
           </div>
           
           <h2 className="text-4xl font-bold text-gray-900 mb-2">

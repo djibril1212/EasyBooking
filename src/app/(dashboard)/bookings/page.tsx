@@ -38,9 +38,9 @@ export default async function BookingsPage() {
       <div className="relative">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-purple-100 px-3 py-1.5 rounded-full mb-3">
-              <Sparkles className="h-4 w-4 text-purple-600" />
-              <span className="text-sm font-medium text-purple-700">Gestion des réservations</span>
+            <div className="inline-flex items-center gap-2 bg-primary-100 px-3 py-1.5 rounded-full mb-3">
+              <Sparkles className="h-4 w-4 text-primary-700" />
+              <span className="text-sm font-medium text-primary-800">Gestion des réservations</span>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-2">Mes Réservations</h1>
             <p className="text-lg text-gray-600">
@@ -50,11 +50,11 @@ export default async function BookingsPage() {
           
           {/* Stats Cards */}
           <div className="flex gap-4">
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl shadow-lg">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white px-6 py-4 rounded-xl shadow-lg">
               <div className="text-3xl font-bold">{upcomingBookings.length}</div>
-              <div className="text-sm text-green-100">À venir</div>
+              <div className="text-sm text-gray-100">À venir</div>
             </div>
-            <div className="bg-gradient-to-br from-gray-500 to-gray-600 text-white px-6 py-4 rounded-xl shadow-lg">
+            <div className="bg-gradient-to-br from-secondary-600 to-secondary-700 text-white px-6 py-4 rounded-xl shadow-lg">
               <div className="text-3xl font-bold">{pastBookings.length}</div>
               <div className="text-sm text-gray-100">Passées</div>
             </div>
@@ -65,8 +65,8 @@ export default async function BookingsPage() {
       {/* Réservations à venir */}
       <section className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-green-100 rounded-lg">
-            <Calendar className="w-6 h-6 text-green-600" />
+          <div className="p-2 bg-primary-100 rounded-lg">
+            <Calendar className="w-6 h-6 text-primary-600" />
           </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-900">
@@ -79,8 +79,8 @@ export default async function BookingsPage() {
         </div>
 
         {upcomingBookings.length === 0 ? (
-          <div className="text-center py-16 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-dashed border-green-200">
-            <Calendar className="w-20 h-20 text-green-400 mx-auto mb-4" />
+          <div className="text-center py-16 bg-primary-50 rounded-2xl border-2 border-dashed border-primary-200">
+            <Calendar className="w-20 h-20 text-primary-400 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Aucune réservation à venir
             </h3>

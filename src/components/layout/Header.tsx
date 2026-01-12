@@ -27,11 +27,13 @@ export default function Header({ user }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-8">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-                <span className="text-white font-bold text-xl">E</span>
+            <Link href="/" className="flex items-center gap-3 group">
+              {/* Logo - Remplacez le contenu de cette div par votre logo */}
+              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all group-hover:scale-105">
+                {/* <img src="/logo.png" alt="EasyBooking Logo" className="w-full h-full object-contain p-1" /> */}
+                <span className="text-white font-bold text-2xl">E</span>
               </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="font-bold text-xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
                 EasyBooking
               </span>
             </Link>
@@ -57,9 +59,9 @@ export default function Header({ user }: HeaderProps) {
           <div className="flex items-center gap-4">
             {user ? (
               <>
-                <div className="hidden sm:flex items-center gap-3 px-4 py-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <User className="w-4 h-4 text-blue-600" />
-                  <span className="text-sm font-medium text-blue-900">
+                <div className="hidden sm:flex items-center gap-3 px-4 py-2 bg-primary-50 rounded-lg border border-primary-200">
+                  <User className="w-4 h-4 text-primary-600" />
+                  <span className="text-sm font-medium text-primary-900">
                     {user.email}
                   </span>
                 </div>
