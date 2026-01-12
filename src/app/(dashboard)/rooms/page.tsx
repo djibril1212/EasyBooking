@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { Room } from "@/types";
 import RoomCard from "./RoomCard";
+import { Search, Filter, Building2, Sparkles } from "lucide-react";
 
 export default async function RoomsPage() {
   const supabase = await createClient();
@@ -15,38 +16,62 @@ export default async function RoomsPage() {
   }
 
   return (
-    <div>
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Salles disponibles</h1>
-        <p className="mt-2 text-gray-600">
-          Sélectionnez une salle pour voir ses disponibilités et réserver
-        </p>
+    <div className="space-y-8">
+      {/* Header Section */}
+      <div className="relative">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-blue-100 px-3 py-1.5 rounded-full mb-3">
+              <Sparkles className="h-4 w-4 text-blue-600" />
+              <span className="text-sm font-medium text-blue-700">Réservation en temps réel</span>
+            </div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Salles disponibles</h1>
+            <p className="text-lg text-gray-600">
+              Découvrez nos espaces et choisissez la salle parfaite pour votre réunion
+            </p>
+          </div>
+          
+          {/* Stats */}
+          <div className="flex gap-4">
+            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-6 py-4 rounded-xl shadow-lg">
+              <div className="text-3xl font-bold">{rooms?.length || 0}</div>
+              <div className="text-sm text-blue-100">Salles disponibles</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {!rooms || rooms.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-xl shadow-md">
-          <svg
-            className="w-16 h-16 text-gray-400 mx-auto mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+      {/* Search and Filters */}
+      <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Rechercher une salle..."
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
-          </svg>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+          </div>
+          <button className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
+            <Filter className="h-5 w-5" />
+            Filtres
+          </button>
+        </div>
+      </div>
+
+      {/* Rooms Grid */}
+      {!rooms || rooms.length === 0 ? (
+        <div className="text-center py-16 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border-2 border-dashed border-gray-300">
+          <Building2 className="w-20 h-20 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
             Aucune salle disponible
           </h3>
-          <p className="text-gray-500">
-            Les salles seront bientôt ajoutées.
+          <p className="text-gray-600 text-lg">
+            Les salles seront bientôt ajoutées à notre plateforme.
           </p>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {(rooms as Room[]).map((room) => (
             <RoomCard key={room.id} room={room} />
           ))}

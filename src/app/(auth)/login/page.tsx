@@ -8,6 +8,7 @@ import { loginSchema } from "@/lib/validations/auth";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import Alert from "@/components/ui/Alert";
+import { LogIn, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -61,22 +62,52 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+      </div>
+
+      <div className="max-w-md w-full space-y-8 relative z-10">
+        {/* Back button */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors mb-4 group"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour à l'accueil
+        </Link>
+
+        {/* Header */}
         <div className="text-center">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">E</span>
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-2xl">E</span>
             </div>
-            <span className="font-bold text-2xl text-gray-900">EasyBooking</span>
+            <span className="font-bold text-3xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              EasyBooking
+            </span>
           </Link>
-          <h2 className="text-3xl font-bold text-gray-900">Connexion</h2>
-          <p className="mt-2 text-gray-600">
-            Connectez-vous pour accéder à votre espace
+          
+          <div className="inline-flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full mb-4">
+            <Sparkles className="h-4 w-4 text-blue-600" />
+            <span className="text-sm font-medium text-blue-700">Connexion sécurisée</span>
+          </div>
+          
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
+            Bon retour !
+          </h2>
+          <p className="text-gray-600">
+            Connectez-vous pour accéder à vos réservations
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6 bg-white p-8 rounded-xl shadow-md">
+        {/* Form */}
+        <form 
+          onSubmit={handleSubmit} 
+          className="mt-8 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100"
+        >
           {globalError && <Alert variant="error">{globalError}</Alert>}
 
           <Input
@@ -103,16 +134,35 @@ export default function LoginPage() {
             autoComplete="current-password"
           />
 
-          <Button type="submit" className="w-full" isLoading={isLoading}>
+          <Button 
+            type="submit" 
+            className="w-full group" 
+            size="lg"
+            isLoading={isLoading}
+          >
+            <LogIn className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
             Se connecter
           </Button>
 
-          <p className="text-center text-sm text-gray-600">
-            Pas encore de compte ?{" "}
-            <Link href="/register" className="text-primary-600 hover:text-primary-500 font-medium">
-              Inscrivez-vous
-            </Link>
-          </p>
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500">Nouveau sur EasyBooking ?</span>
+            </div>
+          </div>
+
+          <Link href="/register" className="block">
+            <Button 
+              type="button" 
+              variant="outline" 
+              className="w-full"
+              size="lg"
+            >
+              Créer un compte
+            </Button>
+          </Link>
         </form>
       </div>
     </div>

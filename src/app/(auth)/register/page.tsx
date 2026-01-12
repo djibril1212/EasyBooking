@@ -8,6 +8,7 @@ import { registerSchema } from "@/lib/validations/auth";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 import Alert from "@/components/ui/Alert";
+import { UserPlus, ArrowLeft, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -76,33 +77,29 @@ export default function RegisterPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
-        <div className="max-w-md w-full text-center">
-          <div className="bg-white p-8 rounded-xl shadow-md">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 px-4 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div className="max-w-md w-full text-center relative z-10">
+          <div className="bg-white/80 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-gray-100 animate-fade-in">
+            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <CheckCircle2 className="w-10 h-10 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Inscription réussie !
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+              Bienvenue sur EasyBooking ! 🎉
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               Votre compte a été créé avec succès. Vous allez être redirigé vers
-              la page de connexion.
+              la page de connexion dans quelques instants.
             </p>
             <Link href="/login">
-              <Button>Aller à la connexion</Button>
+              <Button size="lg" className="shadow-lg">
+                Aller à la connexion
+              </Button>
             </Link>
           </div>
         </div>
@@ -111,22 +108,52 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-pink-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+      </div>
+
+      <div className="max-w-md w-full space-y-8 relative z-10">
+        {/* Back button */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors mb-4 group"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Retour à l'accueil
+        </Link>
+
+        {/* Header */}
         <div className="text-center">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">E</span>
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-2xl">E</span>
             </div>
-            <span className="font-bold text-2xl text-gray-900">EasyBooking</span>
+            <span className="font-bold text-3xl bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              EasyBooking
+            </span>
           </Link>
-          <h2 className="text-3xl font-bold text-gray-900">Créer un compte</h2>
-          <p className="mt-2 text-gray-600">
-            Inscrivez-vous pour réserver des salles
+          
+          <div className="inline-flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full mb-4">
+            <Sparkles className="h-4 w-4 text-purple-600" />
+            <span className="text-sm font-medium text-purple-700">Inscription gratuite</span>
+          </div>
+          
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
+            Créez votre compte
+          </h2>
+          <p className="text-gray-600">
+            Rejoignez EasyBooking et commencez à réserver
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6 bg-white p-8 rounded-xl shadow-md">
+        {/* Form */}
+        <form 
+          onSubmit={handleSubmit} 
+          className="mt-8 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100"
+        >
           {globalError && <Alert variant="error">{globalError}</Alert>}
 
           <Input
@@ -165,16 +192,35 @@ export default function RegisterPage() {
             autoComplete="new-password"
           />
 
-          <Button type="submit" className="w-full" isLoading={isLoading}>
+          <Button 
+            type="submit" 
+            className="w-full group" 
+            size="lg"
+            isLoading={isLoading}
+          >
+            <UserPlus className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
             Créer mon compte
           </Button>
 
-          <p className="text-center text-sm text-gray-600">
-            Déjà un compte ?{" "}
-            <Link href="/login" className="text-primary-600 hover:text-primary-500 font-medium">
-              Connectez-vous
-            </Link>
-          </p>
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500">Déjà membre ?</span>
+            </div>
+          </div>
+
+          <Link href="/login" className="block">
+            <Button 
+              type="button" 
+              variant="outline" 
+              className="w-full"
+              size="lg"
+            >
+              Se connecter
+            </Button>
+          </Link>
         </form>
       </div>
     </div>

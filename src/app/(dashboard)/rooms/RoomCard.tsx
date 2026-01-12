@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { Room } from "@/types";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/Card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import BookingModal from "./BookingModal";
+import { Users, Wifi, Monitor, Calendar } from "lucide-react";
 
 interface RoomCardProps {
   room: Room;
@@ -14,39 +15,75 @@ interface RoomCardProps {
 export default function RoomCard({ room }: RoomCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const getEquipmentIcon = (equipment: string) => {
+    const lower = equipment.toLowerCase();
+    if (lower.includes("wifi") || lower.includes("internet")) return <Wifi className="w-4 h-4" />;
+    if (lower.includes("écran") || lower.includes("projecteur") || lower.includes("vidéo")) return <Monitor className="w-4 h-4" />;
+    return null;
+  };
+
   return (
     <>
-      <Card className="hover:shadow-lg transition-shadow">
-        <CardHeader>
-          <div className="flex justify-between items-start">
-            <h3 className="text-xl font-semibold text-gray-900">{room.name}</h3>
-            <Badge variant="default">{room.capacity} places</Badge>
-          </div>
-        </CardHeader>
-
-        <CardContent>
-          {room.description && (
-            <p className="text-gray-600 mb-4">{room.description}</p>
-          )}
-
-          <div className="space-y-2">
-            <p className="text-sm font-medium text-gray-700">Équipements :</p>
-            <div className="flex flex-wrap gap-2">
-              {room.equipments && room.equipments.length > 0 ? (
-                room.equipments.map((equipment, index) => (
-                  <Badge key={index} variant="success">
-                    {equipment}
-                  </Badge>
-                ))
-              ) : (
-                <span className="text-sm text-gray-500">Aucun équipement</span>
-              )}
+      <Card className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-blue-200 overflow-hidden">
+        {/* Image placeholder with gradient */}
+        <div className="h-48 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-white text-center">
+              <div className="text-6xl font-bold opacity-20">{room.name.charAt(0)}</div>
             </div>
           </div>
+          {room.image_url && (
+            <img 
+              src={room.image_url} 
+              alt={room.name}
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+
+        <CardHeader>
+          <div className="flex justify-between items-start mb-2">
+            <CardTitle className="text-2xl">{room.name}</CardTitle>
+            <div className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full">
+              <Users className="w-4 h-4" />
+              <span className="text-sm font-semibold">{room.capacity}</span>
+            </div>
+          </div>
+          {room.description && (
+            <CardDescription className="text-base">{room.description}</CardDescription>
+          )}
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          {room.equipments && room.equipments.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                <Monitor className="w-4 h-4" />
+                Équipements disponibles
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {room.equipments.map((equipment, index) => (
+                  <div 
+                    key={index}
+                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium border border-blue-200"
+                  >
+                    {getEquipmentIcon(equipment)}
+                    {equipment}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </CardContent>
 
-        <CardFooter>
-          <Button className="w-full" onClick={() => setIsModalOpen(true)}>
+        <CardFooter className="bg-gradient-to-br from-gray-50 to-blue-50 border-t">
+          <Button 
+            className="w-full group/btn shadow-md hover:shadow-xl transition-all" 
+            size="lg"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <Calendar className="w-5 h-5 mr-2 group-hover/btn:scale-110 transition-transform" />
             Réserver cette salle
           </Button>
         </CardFooter>
