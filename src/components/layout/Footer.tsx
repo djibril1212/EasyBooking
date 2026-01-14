@@ -8,10 +8,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              {/* Logo - Remplacez le contenu de cette div par votre logo */}
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-xl flex items-center justify-center shadow-lg">
-                {/* <img src="/logo.png" alt="EasyBooking Logo" className="w-full h-full object-contain p-1" /> */}
-                <span className="text-white font-bold text-2xl">E</span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                <img src="/logo.svg" alt="EasyBooking Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-2xl">EasyBooking</span>
             </div>

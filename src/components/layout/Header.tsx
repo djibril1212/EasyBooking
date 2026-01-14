@@ -28,10 +28,8 @@ export default function Header({ user }: HeaderProps) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-3 group">
-              {/* Logo - Remplacez le contenu de cette div par votre logo */}
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all group-hover:scale-105">
-                {/* <img src="/logo.png" alt="EasyBooking Logo" className="w-full h-full object-contain p-1" /> */}
-                <span className="text-white font-bold text-2xl">E</span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all group-hover:scale-105">
+                <img src="/logo.svg" alt="EasyBooking Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
                 EasyBooking
