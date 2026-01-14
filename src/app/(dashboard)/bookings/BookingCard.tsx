@@ -111,7 +111,7 @@ export default function BookingCard({ booking, canCancel }: BookingCardProps) {
                   Non
                 </Button>
                 <Button
-                  variant="danger"
+                  variant="destructive"
                   size="sm"
                   className="flex-1"
                   isLoading={isLoading}
