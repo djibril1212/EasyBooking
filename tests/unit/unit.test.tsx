@@ -22,8 +22,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Validations
-import { loginSchema, registerSchema } from "../src/lib/validations/auth";
-import { bookingSchema } from "../src/lib/validations/booking";
+import { loginSchema, registerSchema } from "@/lib/validations/auth";
+import { bookingSchema } from "@/lib/validations/booking";
 
 // Utilitaires
 import {
@@ -33,13 +33,13 @@ import {
   isFutureDate,
   getTodayString,
   formatDate,
-} from "../src/lib/utils";
+} from "@/lib/utils";
 
 // Composants
-import Button from "../src/components/ui/Button";
-import Input from "../src/components/ui/Input";
-import Badge from "../src/components/ui/Badge";
-import Alert from "../src/components/ui/Alert";
+import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
+import Badge from "@/components/ui/Badge";
+import Alert from "@/components/ui/Alert";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // 1. VALIDATIONS AUTH
