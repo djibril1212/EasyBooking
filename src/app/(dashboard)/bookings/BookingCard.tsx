@@ -123,7 +123,7 @@ export default function BookingCard({ booking, canCancel }: BookingCardProps) {
             </div>
           ) : (
             <Button
-              variant="danger"
+              variant="destructive"
               size="sm"
               className="w-full"
               onClick={() => setShowConfirm(true)}
